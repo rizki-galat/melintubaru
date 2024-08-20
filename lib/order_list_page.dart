@@ -176,7 +176,7 @@ class OrderListPageState extends State<OrderListPage> {
                 const SizedBox(height: 16.0),
                 Expanded(
                   child: _filteredOrders.isEmpty
-                      ? const Center(child: Text('No data found'))
+                      ? const Center(child: Text('order tidak ditemukan'))
                       : ListView.builder(
                           itemCount: _filteredOrders.length,
                           itemBuilder: (context, index) {

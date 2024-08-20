@@ -15,7 +15,6 @@ class OrderDetailPage extends StatefulWidget {
 }
 
 class FullScreenImage extends StatelessWidget {
-  static const String baseUrl = 'http://10.0.2.2:5500';
   final String fotoURL;
   const FullScreenImage({super.key, required this.fotoURL});
   @override
@@ -106,7 +105,6 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
               const SizedBox(height: 10),
               const Text('Item Order:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-
               const SizedBox(height: 16),
               Text('Nama Product: ${widget.order.productName}',
                   style: const TextStyle(fontSize: 18)),
@@ -163,11 +161,11 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                               child: Image.network(fotoURL),
                             ),
                           ),
+                          
                         if (videoURL != null)
                           GestureDetector(
                             onTap: () {
-                              // ignore: deprecated_member_use
-                              _videoController = VideoPlayerController.network(videoURL)
+                              _videoController = VideoPlayerController.networkUrl(videoURL)
                                 ..initialize().then((_) {
                                   setState(() {});
                                   _videoController!.play();
