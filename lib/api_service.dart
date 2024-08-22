@@ -240,6 +240,7 @@ class ApiService {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
+      debugPrint('$data');
       return data['videoUrl'];
     } else {
       throw Exception('Failed to load video URL');

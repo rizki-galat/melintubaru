@@ -25,7 +25,7 @@ class FullScreenImage extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       body: PhotoView(
-        imageProvider: NetworkImage(fotoURL), // Menggunakan NetworkImage untuk menampilkan gambar dari URL
+        imageProvider: NetworkImage(fotoURL),
       ),
     );
   }
@@ -45,9 +45,8 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
 
   Future<void> _loadOrderItems() async {
     final items = await _apiService.getOrderItemsByOrderId(widget.order.id);
-    debugPrint('$items');
-    setState(() {
-    });
+    debugPrint('ini hasil nya : $items');
+    setState(() {});
   }
 
   Future<void> _loadFotoProgressHistory() async {
@@ -55,6 +54,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
     setState(() {
       _fotoProgressHistory = history;
     });
+    debugPrint('$widget.order.videoProgressURL');
     if (_fotoProgressHistory.isEmpty) {
       debugPrint('Tidak ada data riwayat foto progress.');
     } else {
@@ -62,12 +62,13 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
           'Ada ${_fotoProgressHistory.length} entri riwayat foto progress.');
     }
   }
+  
 
   String intlDate(DateTime date) {
     final format = DateFormat('dd MMMM yyyy, hh:mm a');
     return format.format(date);
   }
-  
+
   String formatDateFromTimestamp(dynamic timestamp) {
     if (timestamp is String) {
       timestamp = int.tryParse(timestamp) ?? 0;
@@ -108,10 +109,44 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
               const SizedBox(height: 16),
               Text('Nama Product: ${widget.order.productName}',
                   style: const TextStyle(fontSize: 18)),
+              const Text('Video Progress:',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+               const SizedBox(height: 10),
+              if (widget.order.videoProgressURL != null)
+                GestureDetector(
+                  onTap: () {
+                    _videoController = VideoPlayerController.networkUrl(
+                      Uri.parse(widget.order.videoProgressURL!)
+                    )..initialize().then((_) {
+                        setState(() {});
+                        _videoController!.play();
+                      });
+                    showDialog(
+                      context: context,
+                      builder: (context) => Dialog(
+                        child: AspectRatio(
+                          aspectRatio: _videoController!.value.aspectRatio,
+                          child: VideoPlayer(_videoController!),
+                        ),
+                      ),
+                    );
+                  },
+                  child: _videoController != null && _videoController!.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _videoController!.value.aspectRatio,
+                          child: VideoPlayer(_videoController!),
+                        )
+                      : const SizedBox(
+                          width: 160,
+                          height: 90,
+                          child: Center(child: CircularProgressIndicator()),
+                        ),
+                ),
 
               const SizedBox(height: 16),
               const Text('Riwayat Foto Progress:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+               
               ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -161,27 +196,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                               child: Image.network(fotoURL),
                             ),
                           ),
-                          
-                        if (videoURL != null)
-                          GestureDetector(
-                            onTap: () {
-                              _videoController = VideoPlayerController.networkUrl(videoURL)
-                                ..initialize().then((_) {
-                                  setState(() {});
-                                  _videoController!.play();
-                                });
-                              showDialog(
-                                context: context,
-                                builder: (context) => Dialog(
-                                  child: AspectRatio(
-                                    aspectRatio: _videoController!.value.aspectRatio,
-                                    child: VideoPlayer(_videoController!),
-                                  ),
-                                ),
-                              );
-                            },
-                            child: const Icon(Icons.play_circle_fill, size: 80),
-                          ),
+                       
                       ],
                     ),
                   );

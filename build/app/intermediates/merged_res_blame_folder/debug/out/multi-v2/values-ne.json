@@ -4,24 +4,7 @@
             "outputFile": "com.example.myapp-mergeDebugResources-23:/values-ne/values-ne.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rizki\\.gradle\\caches\\transforms-3\\2f6a5506f4dac22f7ab67b13b215ea43\\transformed\\core-1.13.1\\res\\values-ne\\values-ne.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,158,261,363,469,567,667,775",
-                        "endColumns": "102,102,101,105,97,99,107,100",
-                        "endOffsets": "153,256,358,464,562,662,770,871"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,18",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,158,261,363,469,567,667,1472",
-                        "endColumns": "102,102,101,105,97,99,107,100",
-                        "endOffsets": "153,256,358,464,562,662,770,1568"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\rizki\\.gradle\\caches\\transforms-3\\9b96ff00da8faaf6ae24bff52e0e559e\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-ne\\values-ne.xml",
+                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\9b96ff00da8faaf6ae24bff52e0e559e\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-ne\\values-ne.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "775,846,917,987,1054,1132,1209,1309,1403",
                         "endColumns": "70,70,69,66,77,76,99,93,68",
                         "endOffsets": "841,912,982,1049,1127,1204,1304,1398,1467"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\2f6a5506f4dac22f7ab67b13b215ea43\\transformed\\core-1.13.1\\res\\values-ne\\values-ne.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,158,261,363,469,567,667,775",
+                        "endColumns": "102,102,101,105,97,99,107,100",
+                        "endOffsets": "153,256,358,464,562,662,770,871"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,18",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,158,261,363,469,567,667,1472",
+                        "endColumns": "102,102,101,105,97,99,107,100",
+                        "endOffsets": "153,256,358,464,562,662,770,1568"
                     }
                 }
             ]
