@@ -212,6 +212,39 @@ class ApiService {
       throw Exception('Failed to update foto progress');
     }
   }
+  Future<void> updateFoto(int orderId, String newFotoProduct) async {
+    debugPrint('$orderId');
+    final response = await http.put(
+      Uri.parse('$baseUrl/orders/$orderId/fotoproduct'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'fotoProdukURL': newFotoProduct,
+      }),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update foto dan video');
+    }
+  }
+  Future<void> updateVideo(int orderId, String newVideoProduct) async {
+    debugPrint('$orderId');
+    final response = await http.put(
+      Uri.parse('$baseUrl/orders/$orderId/videoproduct'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        
+        'videoProgressURL': newVideoProduct, 
+      }),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update foto dan video');
+    }
+  }
  Future<List<OrderItem>> getOrderItemsByOrderId(int orderId) async {
     final response = await http.get(Uri.parse('$baseUrl/orders/$orderId/items'));
 

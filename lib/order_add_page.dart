@@ -67,6 +67,12 @@ class OrderAddPageState extends State<OrderAddPage> {
     debugPrint(newFotoProgressURL);
     await _apiService.updateFotoProgress(orderId, newFotoProgressURL, status);
   }
+  Future<void> _updateFotoProduct(int orderId, String newFotoProduct) async {
+    await _apiService.updateFoto(orderId, newFotoProduct);
+  }
+  Future<void> _updateVideoProduct(int orderId,  String newVideoProduct,) async {
+    await _apiService.updateVideo(orderId, newVideoProduct);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -280,9 +286,19 @@ class OrderAddPageState extends State<OrderAddPage> {
                       if (widget.order != null) {
                         final oldFotoProgressURL = widget.order?.fotoProgressURL ?? '';
                         final newFotoProgressURL = progressImageUrl;
+                        final oldFotoProductURL = widget.order?.fotoProdukURL ?? '';
+                        final newFotoProductURL = productImageUrl;
+                        final oldVideoProgressURL = widget.order?.videoProgressURL ?? '';
+                        final newVideoProgressURL = progressVideoUrl;
                         debugPrint('oldddft: $oldFotoProgressURL : $newFotoProgressURL');
-                        if (oldFotoProgressURL != newFotoProgressURL) {
-                          await _updateFotoProgress(widget.order!.id, newFotoProgressURL!, widget.order!.status ?? '');
+                        if (newFotoProgressURL!= null && oldFotoProgressURL != newFotoProgressURL) {
+                          await _updateFotoProgress(widget.order!.id, newFotoProgressURL, widget.order!.status ?? '');
+                        }
+                        if (newFotoProductURL != null && oldFotoProductURL != newFotoProductURL) {
+                          await _updateFotoProduct(widget.order!.id, newFotoProductURL);
+                        }
+                        if (newVideoProgressURL != null && oldVideoProgressURL != newVideoProgressURL) {
+                          await _updateVideoProduct(widget.order!.id, newVideoProgressURL);
                         }
                         await _apiService.updateOrder(widget.order!.id, newOrder);
                       } else {
