@@ -268,6 +268,17 @@ class ApiService {
     }
   }
 
+  Future<String> getFotoProduk(int orderId) async {
+  final response = await http.get(Uri.parse('$baseUrl/orders/$orderId/fotoproduct'));
+
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> data = json.decode(response.body);
+    return data['fotoProdukURL'];
+  } else {
+    throw Exception('Failed to load foto produk URL');
+  }
+}
+
   Future<String> getVideoUrl(int orderId) async {
     final response = await http.get(Uri.parse('$baseUrl/orders/$orderId/video'));
 

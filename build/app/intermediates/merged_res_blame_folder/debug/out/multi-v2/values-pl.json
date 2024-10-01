@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapp-mergeDebugResources-23:/values-pl/values-pl.xml",
+            "outputFile": "com.example.myapp-mergeDebugResources-24:/values-pl/values-pl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\2f6a5506f4dac22f7ab67b13b215ea43\\transformed\\core-1.13.1\\res\\values-pl\\values-pl.xml",
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\54cd06d363a3baecf3264ff451143b98\\transformed\\browser-1.8.0\\res\\values-pl\\values-pl.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,152,254,352,451,565,670,792",
-                        "endColumns": "96,101,97,98,113,104,121,100",
-                        "endOffsets": "147,249,347,446,560,665,787,888"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,155,254,369",
+                        "endColumns": "99,98,114,103",
+                        "endOffsets": "150,249,364,468"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,18",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,152,254,352,451,565,670,1454",
-                        "endColumns": "96,101,97,98,113,104,121,100",
-                        "endOffsets": "147,249,347,446,560,665,787,1550"
+                        "startLines": "9,19,20,21",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "792,1554,1653,1768",
+                        "endColumns": "99,98,114,103",
+                        "endOffsets": "887,1648,1763,1867"
                     }
                 },
                 {
-                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\9b96ff00da8faaf6ae24bff52e0e559e\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-pl\\values-pl.xml",
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\154d6ff6aaf8148a67199b21dcd55a59\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-pl\\values-pl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -30,11 +30,28 @@
                         "endOffsets": "123,184,246,315,393,463,556,647,712"
                     },
                     "to": {
-                        "startLines": "9,10,11,12,13,14,15,16,17",
+                        "startLines": "10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "792,865,926,988,1057,1135,1205,1298,1389",
+                        "startOffsets": "892,965,1026,1088,1157,1235,1305,1398,1489",
                         "endColumns": "72,60,61,68,77,69,92,90,64",
-                        "endOffsets": "860,921,983,1052,1130,1200,1293,1384,1449"
+                        "endOffsets": "960,1021,1083,1152,1230,1300,1393,1484,1549"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\e1f8502734c4c50fd76a5762182b84fd\\transformed\\core-1.13.1\\res\\values-pl\\values-pl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,152,254,352,451,565,670,792",
+                        "endColumns": "96,101,97,98,113,104,121,100",
+                        "endOffsets": "147,249,347,446,560,665,787,888"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,22",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,152,254,352,451,565,670,1872",
+                        "endColumns": "96,101,97,98,113,104,121,100",
+                        "endOffsets": "147,249,347,446,560,665,787,1968"
                     }
                 }
             ]

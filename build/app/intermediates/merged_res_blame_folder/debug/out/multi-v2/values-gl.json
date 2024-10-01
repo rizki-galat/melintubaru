@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.myapp-mergeDebugResources-23:/values-gl/values-gl.xml",
+            "outputFile": "com.example.myapp-mergeDebugResources-24:/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\9b96ff00da8faaf6ae24bff52e0e559e\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-gl\\values-gl.xml",
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\154d6ff6aaf8148a67199b21dcd55a59\\transformed\\jetified-media3-exoplayer-1.4.0\\res\\values-gl\\values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -13,15 +13,15 @@
                         "endOffsets": "124,187,252,331,408,484,583,679,748"
                     },
                     "to": {
-                        "startLines": "9,10,11,12,13,14,15,16,17",
+                        "startLines": "10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "783,857,920,985,1064,1141,1217,1316,1412",
+                        "startOffsets": "890,964,1027,1092,1171,1248,1324,1423,1519",
                         "endColumns": "73,62,64,78,76,75,98,95,68",
-                        "endOffsets": "852,915,980,1059,1136,1212,1311,1407,1476"
+                        "endOffsets": "959,1022,1087,1166,1243,1319,1418,1514,1583"
                     }
                 },
                 {
-                    "source": "C:\\Users\\hiday\\.gradle\\caches\\transforms-3\\2f6a5506f4dac22f7ab67b13b215ea43\\transformed\\core-1.13.1\\res\\values-gl\\values-gl.xml",
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\e1f8502734c4c50fd76a5762182b84fd\\transformed\\core-1.13.1\\res\\values-gl\\values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,11 +30,28 @@
                         "endOffsets": "149,251,351,449,556,662,778,879"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,18",
+                        "startLines": "2,3,4,5,6,7,8,22",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,256,356,454,561,667,1481",
+                        "startOffsets": "55,154,256,356,454,561,667,1908",
                         "endColumns": "98,101,99,97,106,105,115,100",
-                        "endOffsets": "149,251,351,449,556,662,778,1577"
+                        "endOffsets": "149,251,351,449,556,662,778,2004"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\rizki\\.gradle\\caches\\8.9\\transforms\\54cd06d363a3baecf3264ff451143b98\\transformed\\browser-1.8.0\\res\\values-gl\\values-gl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,162,264,376",
+                        "endColumns": "106,101,111,105",
+                        "endOffsets": "157,259,371,477"
+                    },
+                    "to": {
+                        "startLines": "9,19,20,21",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "783,1588,1690,1802",
+                        "endColumns": "106,101,111,105",
+                        "endOffsets": "885,1685,1797,1903"
                     }
                 }
             ]

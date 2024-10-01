@@ -49,9 +49,9 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profil'),
         actions: [
-          const Text('Log Out'),
+          const Text('Log Out',style: TextStyle(color: Colors.red)),
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout, color: Colors.red),
             onPressed: logout,
           ),
         ],
@@ -60,29 +60,62 @@ class _ProfilePageState extends State<ProfilePage> {
           ? const Center(child: CircularProgressIndicator())
           : _user == null
               ? const Center(child: Text('User not found'))
-              : Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: _user!.foto.isNotEmpty
-                            ? NetworkImage(_user!.foto)
-                            : null, // Gunakan null jika foto tidak ada
+              : Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 16.0),
+                          Text(
+                            'Email: ${_user!.email}',
+                            style: const TextStyle(fontSize: 18.0),
+                          ),
+                          Text(
+                            'Role: ${_user!.role}',
+                            style: const TextStyle(fontSize: 18.0),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 16.0),
-                      Text(
-                        'Email: ${_user!.email}',
-                        style: const TextStyle(fontSize: 18.0),
+                    ),
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset('assets/logo.png'),
+                          const SizedBox(height: 10.0), 
+                          const Text(
+                            'Instagram: Melintu Design',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold, 
+                            ),
+                          ),
+                          const SizedBox(height: 5.0), 
+                          const Text(
+                            'Tokopedia: Melintu Design', 
+                            style: TextStyle(
+                              color: Colors.black, 
+                              fontSize: 16.0, 
+                              fontWeight: FontWeight.bold, 
+                            ),
+                          ),
+                          const SizedBox(height: 5.0),
+                          const Text(
+                            'WhatsApp: 0857 1159 4776', 
+                            style: TextStyle(
+                              color: Colors.black, 
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Role: ${_user!.role}',
-                        style: const TextStyle(fontSize: 18.0),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-    );
-  }
+          );
+        }
 }

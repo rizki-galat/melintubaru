@@ -55,8 +55,9 @@ class _UserListState extends State<UserList> {
       appBar: AppBar(
         title: const Text('Daftar Pengguna'),
         actions: [
+          const Text('Refresh',style: TextStyle(color: Colors.blue)),
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh, color: Colors.blue),
             onPressed: () {
               refreshUserList(); // Memuat ulang daftar pengguna
             },
@@ -98,10 +99,6 @@ class _UserListState extends State<UserList> {
                           padding: const EdgeInsets.all(16.0),
                           child: Row(
                             children: [
-                              CircleAvatar(
-                                backgroundImage: NetworkImage(user.foto),
-                                radius: 25,
-                              ),
                               const SizedBox(width: 16),
                               Expanded(
                                 child: Column(

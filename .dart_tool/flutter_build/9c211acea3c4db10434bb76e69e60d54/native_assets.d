@@ -1,0 +1,1 @@
+ C:\\Users\\rizki\\OneDrive\\Desktop\\SKRIPSI\\melintufrontand\\melintubaru\\.dart_tool\\flutter_build\\9c211acea3c4db10434bb76e69e60d54\\native_assets.yaml: 

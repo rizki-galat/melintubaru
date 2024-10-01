@@ -25,7 +25,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Melintu App'),
+        centerTitle: true,
+        backgroundColor : const Color.fromARGB(255, 154, 60, 149),
+        titleTextStyle: const TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.bold),     
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -33,8 +36,8 @@ class _LoginPageState extends State<LoginPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFFE0F7FA),
-              Color(0xFF2962FF)
+              Color.fromARGB(255, 244, 239, 244),
+              Color.fromARGB(255, 224, 184, 222)
             ], // Warna gradien biru
           ),
         ),
@@ -86,10 +89,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 45),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: const Color.fromARGB(255, 154, 60, 149),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   textStyle: const TextStyle(fontSize: 18),
@@ -163,6 +166,8 @@ class _LoginPageState extends State<LoginPage> {
                   }
                   widget.onLoginProcess(false);
                 },
+
+                
                 child:
                     const Text('Login', style: TextStyle(color: Colors.white)),
               ),

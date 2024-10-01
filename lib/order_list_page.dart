@@ -145,9 +145,9 @@ class OrderListPageState extends State<OrderListPage> {
       appBar: AppBar(
         title: const Text('Daftar Order'),
         actions: [
-          const Text('Refresh'),
+          const Text('Refresh',style: TextStyle(color: Colors.blue)),
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh, color: Colors.blue),
             onPressed: _loadOrders,
              
           ),
@@ -211,6 +211,19 @@ class OrderListPageState extends State<OrderListPage> {
                                     if (_isAdmin)
                                       Row(
                                         children: [
+                                           ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  OrderDetailPage(order: order),
+                                            ),
+                                          );
+                                        },
+                                        child: const Text('Detail'),
+                                        
+                                      ),
                                           IconButton(
                                             icon: const Icon(Icons.edit,
                                                 color: Colors.blue),
@@ -293,9 +306,11 @@ class OrderListPageState extends State<OrderListPage> {
       floatingActionButton: _isAdmin
           ? FloatingActionButton(
               onPressed: _showAddOrderPage,
-              child: const Icon(Icons.add),
+              child: const Icon(Icons.add), 
             )
           : null,
+    
+    
     );
   }
 

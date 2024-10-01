@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'user_model.dart';
@@ -26,13 +25,6 @@ class AddUserPageState extends State<AddUserPage> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
-  }
-
-  void _pickImage(ImageSource source) async {
-    final pickedFile = await ImagePicker().pickImage(source: source);
-    setState(() {
-      _imageFile = pickedFile;
-    });
   }
 
   @override
@@ -97,15 +89,6 @@ class AddUserPageState extends State<AddUserPage> {
                       _role = value!;
                     });
                   },
-                ),
-                if (_imageFile != null) Image.file(File(_imageFile!.path)),
-                ElevatedButton(
-                  onPressed: () => _pickImage(ImageSource.gallery),
-                  child: const Text('Pilih dari Galeri'),
-                ),
-                ElevatedButton(
-                  onPressed: () => _pickImage(ImageSource.camera),
-                  child: const Text('Ambil Foto'),
                 ),
                 const SizedBox(height: 16.0),
                 ElevatedButton(

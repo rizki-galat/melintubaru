@@ -82,7 +82,10 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Melintu Desain'),
+        title: const Text('Melintu Design'),
+        centerTitle: true,
+        backgroundColor : const Color.fromARGB(255, 154, 60, 149),
+        titleTextStyle: const TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.bold),     
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -90,40 +93,39 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: _userRole == 'Admin'
             ? const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.list),
-                  label: 'Order',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.people),
-                  label: 'User',
-                ),
-                
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ]
-
-            : const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.list),
-                  label: 'Order',
-                ),
-                
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
+ BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.white),
+            label: 'Order',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people, color: Colors.white),
+            label: 'User',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, color: Colors.white),
+            label: 'Profile',
+          ),
+        ]
+      : const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.white),
+            label: 'Order',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, color: Colors.white),
+            label: 'Profile',
+          ),
+        ],
+  currentIndex: _selectedIndex,
+  selectedItemColor: Colors.blue,
+  unselectedItemColor: Colors.white, // Color for unselected items
+  backgroundColor: const Color.fromARGB(255, 154, 60, 149), // Background color
+  onTap: (index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  },
+),
     );
   }
 

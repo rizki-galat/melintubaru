@@ -21,7 +21,7 @@ class OrderAddPageState extends State<OrderAddPage> {
   final _quantityController = TextEditingController();
   final _priceController = TextEditingController();
   String? _selectedCustomer;
-  String? _status;
+  final _status = TextEditingController();
   XFile? _productImage;
   XFile? _progressImage;
   XFile? _progressVideo;
@@ -40,7 +40,7 @@ class OrderAddPageState extends State<OrderAddPage> {
       _selectedCustomer = order.customerName;
       _orderDateController.text = order.orderDate.toLocal().toString().split(' ')[0];
       _totalPriceController.text = order.totalPrice.toString();
-      _status = order.status;
+      _status.text = order.status??'';
       _productNameController.text = order.productName ?? '';
       _quantityController.text = order.quantity?.toString() ?? '';
       _priceController.text = order.price?.toString() ?? '';
@@ -66,12 +66,6 @@ class OrderAddPageState extends State<OrderAddPage> {
   Future<void> _updateFotoProgress(int orderId, String newFotoProgressURL, String status) async {
     debugPrint(newFotoProgressURL);
     await _apiService.updateFotoProgress(orderId, newFotoProgressURL, status);
-  }
-  Future<void> _updateFotoProduct(int orderId, String newFotoProduct) async {
-    await _apiService.updateFoto(orderId, newFotoProduct);
-  }
-  Future<void> _updateVideoProduct(int orderId,  String newVideoProduct,) async {
-    await _apiService.updateVideo(orderId, newVideoProduct);
   }
 
   @override
@@ -141,23 +135,13 @@ class OrderAddPageState extends State<OrderAddPage> {
                     return null;
                   },
                 ),
-                DropdownButtonFormField<String>(
-                  value: _status,
+                
+                TextFormField(
+                  controller: _status,
                   decoration: const InputDecoration(labelText: 'Status'),
-                  items: ['Pending', 'Process', 'Completed', 'Cancelled']
-                      .map((status) => DropdownMenuItem(
-                            value: status,
-                            child: Text(status),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _status = value;
-                    });
-                  },
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Status harus dipilih';
+                      return 'Status harus diisi';
                     }
                     return null;
                   },
@@ -277,7 +261,7 @@ class OrderAddPageState extends State<OrderAddPage> {
                         'productName': _productNameController.text,
                         'quantity': int.parse(_quantityController.text),
                         'price': double.parse(_priceController.text),
-                        'status': _status ?? 'Pending',
+                        'status': _status.text,
                         'fotoProdukURL': productImageUrl,
                         'fotoProgressURL': progressImageUrl,
                         'videoProgressURL': progressVideoUrl,
@@ -286,20 +270,11 @@ class OrderAddPageState extends State<OrderAddPage> {
                       if (widget.order != null) {
                         final oldFotoProgressURL = widget.order?.fotoProgressURL ?? '';
                         final newFotoProgressURL = progressImageUrl;
-                        final oldFotoProductURL = widget.order?.fotoProdukURL ?? '';
-                        final newFotoProductURL = productImageUrl;
-                        final oldVideoProgressURL = widget.order?.videoProgressURL ?? '';
-                        final newVideoProgressURL = progressVideoUrl;
                         debugPrint('oldddft: $oldFotoProgressURL : $newFotoProgressURL');
                         if (newFotoProgressURL!= null && oldFotoProgressURL != newFotoProgressURL) {
                           await _updateFotoProgress(widget.order!.id, newFotoProgressURL, widget.order!.status ?? '');
                         }
-                        if (newFotoProductURL != null && oldFotoProductURL != newFotoProductURL) {
-                          await _updateFotoProduct(widget.order!.id, newFotoProductURL);
-                        }
-                        if (newVideoProgressURL != null && oldVideoProgressURL != newVideoProgressURL) {
-                          await _updateVideoProduct(widget.order!.id, newVideoProgressURL);
-                        }
+                       
                         await _apiService.updateOrder(widget.order!.id, newOrder);
                       } else {
                         await _apiService.addOrder(newOrder);
